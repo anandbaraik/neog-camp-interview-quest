@@ -3,7 +3,7 @@
 * and num3=17.
 */
 
-let num1 = 8, num2 = 23, num3 = 17;
+let num1 = 10, num2 = 23, num3 = 17;
 let arr = [num1, num2, num3];
 //Method 1 
 let max = 0;
