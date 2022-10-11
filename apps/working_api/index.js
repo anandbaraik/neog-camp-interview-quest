@@ -6,10 +6,14 @@ let btn  = document.querySelector("#call_api");
 let nameInput = document.querySelector("#name");
 
 function callApiFun() {
-    fetch(`${url}?name=${nameInput.value}`)
+
+    if(!nameInput.value) {alert('name is required!'); return;}
+
+    fetch(`${url}?name=${encodeURI(nameInput.value)}`)
     .then((res) => res.json())
     .then((result) => {
-        let paragraph = `name:${result.name}<br>age:${result.age}<br>count:${result.count}`;
+        let {name, age, count} = result;
+        let paragraph = `name:${name}<br>age:${age}<br>count:${count}`;
         outputBox.innerHTML = paragraph;
     })
     .catch((err) => console.log(err));
